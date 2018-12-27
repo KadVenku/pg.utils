@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\pg.utils\pg.utils.csproj" />
+    <ProjectReference Include="..\pg.util\pg.util.csproj" />
   </ItemGroup>
 
 </Project>

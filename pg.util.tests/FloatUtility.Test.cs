@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace pg.utils.tests
+namespace pg.util.tests
 {
     [TestClass]
     public class UnitTest1
