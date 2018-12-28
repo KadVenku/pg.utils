@@ -3,11 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace pg.util.tests
 {
     [TestClass]
-    public class UnitTest1
+    public class FloatUtilityTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        
     }
 }
