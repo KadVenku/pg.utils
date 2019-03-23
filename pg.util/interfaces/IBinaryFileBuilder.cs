@@ -1,8 +1,8 @@
 ﻿namespace pg.util.interfaces
 {
-    public interface IBinaryFileBuilder<out T>
+    public interface IBinaryFileBuilder<out TFileToBuild, in TFileToBuildAttribute>
     {
-        T Build(byte[] megFileBytes);
-        byte[] Build(object payload);
+        TFileToBuild Build(byte[] bytes);
+        TFileToBuild Build(TFileToBuildAttribute attribute);
     }
 }
