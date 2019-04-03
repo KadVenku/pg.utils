@@ -9,13 +9,39 @@ namespace pg.util.interfaces.impl
     {
         protected bool IsInitialised = false;
         protected Dictionary<TKey, TData> _DATA = new Dictionary<TKey, TData>();
+        
         public virtual void Init()
         {
             IsInitialised = true;
         }
+        
+        public virtual void Add(TKey key, TData obj)
+        {
+            if (!IsInitialised) return;
+            if(key == null) throw new ArgumentNullException($"A null argument has been provided for{nameof(key)}");
+            if (_DATA.ContainsKey(key))
+            {
+                throw new DuplicateKeyException($"An object with key '{key}' already exists.");
+            }
+            _DATA.Add(key, obj);
+        }
+
+        public virtual bool TryAdd(TKey key, TData obj)
+        {
+            try
+            {
+                Add(key, obj);
+                return true;
+            }
+            catch (DuplicateKeyException)
+            {
+                return false;
+            }
+        }
 
         public virtual TData Get(TKey key)
         {
+            if(key == null) throw new ArgumentNullException($"A null argument has been provided for{nameof(key)}");
             if (IsInitialised && _DATA.ContainsKey(key))
             {
                 return _DATA[key];

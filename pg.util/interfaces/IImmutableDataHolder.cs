@@ -1,6 +1,6 @@
 ﻿namespace pg.util.interfaces
 {
-    public interface IImmutableDataHolder<in TKey, out TData> : IDataHolder<TKey,TData>
+    public interface IImmutableDataHolder<in TKey, TData> : IDataHolder<TKey,TData>
     {
     }
 }
