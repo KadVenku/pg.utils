@@ -22,7 +22,7 @@ namespace pg.util.interfaces.impl
                 Add(key, obj);
                 return true;
             }
-            catch (DuplicateKeyException e)
+            catch (DuplicateKeyException)
             {
                 return false;
             }
@@ -48,7 +48,7 @@ namespace pg.util.interfaces.impl
                 Update(key, obj);
                 return true;
             }
-            catch (UnknownKeyException e)
+            catch (UnknownKeyException)
             {
                 return false;
             }
@@ -73,11 +73,11 @@ namespace pg.util.interfaces.impl
                 AddOrUpdate(key, obj);
                 return true;
             }
-            catch (UnknownKeyException e)
+            catch (UnknownKeyException)
             {
                 return false;
             }
-            catch (DuplicateKeyException e)
+            catch (DuplicateKeyException)
             {
                 return false;
             }
