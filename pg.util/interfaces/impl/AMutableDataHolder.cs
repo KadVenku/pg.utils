@@ -1,4 +1,5 @@
-﻿using pg.util.exceptions;
+﻿using System;
+using pg.util.exceptions;
 
 namespace pg.util.interfaces.impl
 {
@@ -14,6 +15,19 @@ namespace pg.util.interfaces.impl
             _DATA.Add(key, obj);
         }
 
+        public virtual bool TryAdd(TKey key, TData obj)
+        {
+            try
+            {
+                Add(key, obj);
+                return true;
+            }
+            catch (DuplicateKeyException e)
+            {
+                return false;
+            }
+        }
+
         public virtual void Update(TKey key, TData obj)
         {
             if (!IsInitialised) return;
@@ -27,6 +41,19 @@ namespace pg.util.interfaces.impl
             }
         }
 
+        public virtual bool TryUpdate(TKey key, TData obj)
+        {
+            try
+            {
+                Update(key, obj);
+                return true;
+            }
+            catch (UnknownKeyException e)
+            {
+                return false;
+            }
+        }
+
         public virtual void AddOrUpdate(TKey key, TData obj)
         {
             try
@@ -36,6 +63,23 @@ namespace pg.util.interfaces.impl
             catch (UnknownKeyException)
             {
                 Add(key, obj);
+            }
+        }
+
+        public virtual bool TryAddOrUpdate(TKey key, TData obj)
+        {
+            try
+            {
+                AddOrUpdate(key, obj);
+                return true;
+            }
+            catch (UnknownKeyException e)
+            {
+                return false;
+            }
+            catch (DuplicateKeyException e)
+            {
+                return false;
             }
         }
     }

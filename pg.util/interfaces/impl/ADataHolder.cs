@@ -28,9 +28,9 @@ namespace pg.util.interfaces.impl
             return IsInitialised ? _DATA.Values.ToList() : new List<TData>();
         }
 
-        public virtual void Purge()
+        public virtual void Clear()
         {
-            _DATA = new Dictionary<TKey, TData>();
+            _DATA.Clear();
         }
     }
 }

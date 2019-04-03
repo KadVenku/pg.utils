@@ -7,6 +7,6 @@ namespace pg.util.interfaces
         void Init();
         TData Get(TKey key);
         IEnumerable<TData> GetAll();
-        void Purge();
+        void Clear();
     }
 }
