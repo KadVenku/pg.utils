@@ -49,6 +49,13 @@ namespace pg.util.interfaces.impl
             throw new UnsatisfiedReferenceException($"The object with key '{key}' does not exist.");
         }
 
+        public virtual bool Contains(TKey key)
+        {
+            if (!IsInitialised) return false;
+            if(key == null) throw new ArgumentNullException($"A null argument has been provided for{nameof(key)}");
+            return _DATA.ContainsKey(key);
+        }
+
         public virtual IEnumerable<TData> GetAll()
         {
             return IsInitialised ? _DATA.Values.ToList() : new List<TData>();

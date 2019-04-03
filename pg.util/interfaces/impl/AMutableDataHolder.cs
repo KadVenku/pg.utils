@@ -60,5 +60,15 @@ namespace pg.util.interfaces.impl
                 return false;
             }
         }
+
+        public virtual void Remove(TKey key)
+        {
+            if (!IsInitialised) return;
+            if(key == null) throw new ArgumentNullException($"A null argument has been provided for{nameof(key)}");
+            if (_DATA.ContainsKey(key))
+            {
+                _DATA.Remove(key);
+            }
+        }
     }
 }

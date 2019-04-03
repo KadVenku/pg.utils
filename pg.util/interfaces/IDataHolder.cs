@@ -8,6 +8,7 @@ namespace pg.util.interfaces
         void Add(TKey key, TData obj);
         bool TryAdd(TKey key, TData obj);
         TData Get(TKey key);
+        bool Contains(TKey key);
         IEnumerable<TData> GetAll();
         void Clear();
     }

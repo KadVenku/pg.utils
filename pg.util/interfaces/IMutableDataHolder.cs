@@ -6,5 +6,6 @@
         bool TryUpdate(TKey key, TData obj);
         void AddOrUpdate(TKey key, TData obj);
         bool TryAddOrUpdate(TKey key, TData obj);
+        void Remove(TKey key);
     }
 }
