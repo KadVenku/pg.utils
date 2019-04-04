@@ -6,7 +6,7 @@ namespace pg.util
     /// <summary>
     /// A convenience class to handle Petroglyph's boolean types.
     /// </summary>
-    public class BooleanUtility
+    public sealed class BooleanUtility
     {
         /// <summary>
         /// Defines the types from the values used by Petroglyph as booleans in their xml files.
