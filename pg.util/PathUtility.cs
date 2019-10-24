@@ -7,11 +7,12 @@ namespace pg.util
     {
         public static bool CreatePath(string path)
         {
+            path = Path.GetFullPath(path);
             if (!IsValidDirectoryPath(path))
             {
                 return false;
             }
-            
+
             try
             {
                 Directory.CreateDirectory(path);
@@ -20,7 +21,7 @@ namespace pg.util
             {
                 return false;
             }
-            
+
             return true;
         }
 
@@ -28,20 +29,25 @@ namespace pg.util
         {
             return ValidateFilePath(path, true, true);
         }
-        
+
         public static bool IsValidDirectoryPath(string path)
         {
             return ValidateFilePath(path, false);
         }
-        
+
         private static bool ValidateFilePath(string path, bool includeFileName, bool requireFileName = false)
         {
-            if (string.IsNullOrEmpty(path)) { return false; }
-            string root = null;
-            string directory = null;
+            if (string.IsNullOrEmpty(path))
+            {
+                return false;
+            }
+
+            string root;
+            string directory;
             string filename = null;
             try
             {
+                path = Path.GetFullPath(path);
                 root = Path.GetPathRoot(path);
                 directory = Path.GetDirectoryName(path);
                 if (includeFileName)
@@ -49,23 +55,27 @@ namespace pg.util
                     filename = Path.GetFileName(path);
                 }
             }
-            catch (ArgumentException)
+            catch (Exception)
             {
                 return false;
             }
+
             if (string.IsNullOrEmpty(root))
             {
                 return false;
             }
+
             if (string.IsNullOrEmpty(directory))
             {
                 return false;
             }
+
             if (!requireFileName) return true;
             if (string.IsNullOrEmpty(filename))
             {
                 return false;
             }
+
             return filename.IndexOfAny(Path.GetInvalidFileNameChars()) < 0;
         }
     }
