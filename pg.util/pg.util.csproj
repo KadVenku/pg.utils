@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Petroglyph Utility</Title>
+    <Authors>Lukas Grünwald</Authors>
+    <Description>Provides common utilites and interface definitions for Petroglyph libraries.</Description>
+    <Copyright>2019 - Lukas Grünwald</Copyright>
+    <PackageProjectUrl>https://github.com/KadVenku/pg.utils</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/KadVenku/pg.utils/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/KadVenku/pg.utils</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>petroglyph, alamo, glyphx</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>
